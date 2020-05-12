@@ -32,7 +32,7 @@ fn main(){
 //We also are allowed to declare a variable (be it mutable or immutable) and not assign an initial value to it...
 //For example, we can do the following:
 fn main(){
-  let mux a;
+  let mut a;
   a = 17;
   println!("the value of a is: {}.", a);
   a = 234;

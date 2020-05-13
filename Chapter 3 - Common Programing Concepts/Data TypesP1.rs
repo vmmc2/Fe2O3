@@ -43,6 +43,14 @@ sign. However, when it's safe to assume that the number is always positive, it's
 - The f32 type is a single-precision float, and f64 has double precision.
 */
 
+//3) Boolean
+/*
+- Rust also has the boolean type (such as the vast majority of other programming languages).
+- A boolean has only two values: "true" and "false"
+- In Rust, a boolean has a size of 8-bits (1 byte).
+*/
+
+
 
 fn main(){
     let a: u32 = 1_000_000;
@@ -64,5 +72,8 @@ fn main(){
     //Divisao inteira com Rust: Nao arredonda. Apenas descarta a parte decimal.
     let q: i32 = 5/3;
     println!("{}", q);
+    
+    let ab: bool = true;
+    println!("the value of ab is: {}", ab);
     
 }

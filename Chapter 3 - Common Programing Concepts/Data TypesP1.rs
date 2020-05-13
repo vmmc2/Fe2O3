@@ -1,8 +1,8 @@
-//Rust is a statically-typed language. This means that it must know the type of all variables at compile-time
+//Rust is a statically-typed language. This means that it must know the type of all variables at compile-time.
 //The Rust Compiler, as well as the GHC, can usually infer what type we want to use based on its value and how we use it.
 
 //Scalar Type:
-// A scalar type represents a single value. Rust has four primary scalar types: booleans, characters, integers, floating-point
+// A scalar type represents a single value. Rust has four primary scalar types: booleans, characters, integers, floating-point.
 
 //1) Integers:
 /*
@@ -46,8 +46,9 @@ sign. However, when it's safe to assume that the number is always positive, it's
 //3) Boolean
 /*
 - Rust also has the boolean type (such as the vast majority of other programming languages).
-- A boolean has only two values: "true" and "false"
+- A boolean has only two values: "true" and "false".
 - In Rust, a boolean has a size of 8-bits (1 byte).
+- The type of annotation we dealing with booleans is: 'bool'.
 */
 
 

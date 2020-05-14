@@ -11,14 +11,14 @@
 - Tuples have a fixed length: once declared, they cannot grow or shrink in size.
 - We create a tuple by writing a comma-separated list of values inside parentheses. 
 - Each position in the tuple has a type, and the types of the different values in the tuple don’t have to be the same.
-- We are can also put annotations when we are declaring the tuple. But this is optional. For more info, look at the example provided inside the main() function.
+- We can also put annotations when we are declaring the tuple. But this is optional. For more info, look at the example provided inside the main() function.
 
 
 */
 
 fn main(){
     let tup: (i32, f64, u8) = (500, 6.4, 1);
-    //In the example above we have a tuple of three elements. The types are: signed int of 32-bits, floating-point number of 64-bits, unsigned int of 8-bits.
+    //In the example above we have a tuple of three elements. The types are: signed integer of 32-bits, floating-point number of 64-bits, unsigned integer of 8-bits.
     
     //To get the individual values out of a tuple, we can use pattern matching to destructure a tuple value, like this:
     let (x, y, z) = tup;

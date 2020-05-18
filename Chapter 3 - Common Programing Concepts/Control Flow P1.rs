@@ -16,13 +16,25 @@
 - You can have multiple conditions by combining if and else in an else if expression. For example look to the function condition2()
 - If we have an "if-else" block, as soon as one condition inside that block is met, it is going to be executed and the code will continue 
 running outisde of that block, even if that are other conditions that are also true after the one that we first met.
+- Or, in other words, Rust only executes the block for the first true condition, and once it finds one, it doesn’t even check the rest.
+- We can also use "if" statements with "let" keyword. See the assignment() function for more info.
 
 */
 
+fn assignment() -> i32{
+    let x: i32 = 16;
+    let number: i32 = if x < 17 {4} else {8};
+    return number;
+}
+
+
 fn main(){
-    condition1();
-    condition2();
-    condition3();
+    //condition1();
+    //condition2();
+    //condition3();
+    
+    let answer = assignment();
+    println!("The value of asnwer is: {}", answer);
 }
 
 fn condition1(){
@@ -67,4 +79,3 @@ fn condition3(){
         println!("Deu bom.");
     }
 }
-

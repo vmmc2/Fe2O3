@@ -62,6 +62,51 @@ fn main(){
     println!("{}", a);
 }
 
+//Difference between the String literal and the String that is store in the Heap.
+/*
+- In the case of a string literal, we know the contents at compile time, so the text is hardcoded directly into the final executable.
+- This is why string literals are fast and efficient.
+- But these properties only come from the string literal’s immutability. 
+- With the String type, in order to support a mutable, growable piece of text, we need to allocate an amount of memory on the heap, unknown at compile time, to hold the contents. 
+- This means that:
+  1) The memory must be requested from the operating system at runtime.
+  2) We need a way of returning this memory to the operating system when we’re done with our String.
+  
+- That first part is done by us: when we call String::from, its implementation requests the memory it needs. 
+This is pretty much universal in programming languages.
+- However, the second part is different. In languages with a garbage collector (GC), the GC keeps track and cleans up memory that isn’t being
+used anymore, and we don’t need to think about it. Without a GC, it’s our responsibility to identify when memory is no longer being used and 
+call code to explicitly return it, just as we did to request it. Doing this correctly has historically been a difficult programming problem. 
+If we forget, we’ll waste memory. If we do it too early, we’ll have an invalid variable. If we do it twice, that’s a bug too. We need to pair 
+exactly one allocate with exactly one free.
+- Rust takes a different path: the memory is automatically returned once the variable that owns it goes out of scope. 
+*/
+
+
+//Ways that Variables and Data interact: Move
+/*
+- Multiple variables can interact with the same data in different ways in Rust. Look at the example below in which we use an integer:
+let x = 5;
+let y = x;
+- We can probably guess what this is doing: “bind the value 5 to x; then make a copy of the value in x and bind it to y.” We now have two 
+variables, x and y, and both equal 5. This is indeed what is happening, because integers are simple values with a known, fixed size, and 
+these two 5 values are pushed onto the stack.
+
+
+- Now, take a look at the string version of what was done above:
+let s1 = String::from("hello");
+let s2 = s1;
+- This looks very similar to the previous code, so we might assume that the way it works would be the same: that is, the second line would 
+make a copy of the value in s1 and bind it to s2. But this isn’t quite what happens.
+- A String is made up of three parts, shown on the left: a pointer to the memory that holds the contents of the string, a length, and a capacity. 
+This group of data is stored on the stack.
+- The length is how much memory, in bytes, the contents of the String is currently using. The capacity is the total amount of memory, in bytes, 
+that the String has received from the operating system. The difference between length and capacity matters, but not in this context, so for now, 
+it’s fine to ignore the capacity.
+- When we assign s1 to s2, the String data is copied, meaning we copy the pointer, the length, and the capacity that are on the stack. 
+We do not copy the data on the heap that the pointer refers to.
+- Again, Rust does not copy the data heap when we do an assignment of type: s2 = s1;
+*/
 
 
 

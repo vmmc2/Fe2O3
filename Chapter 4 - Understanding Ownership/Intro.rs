@@ -105,7 +105,7 @@ that the String has received from the operating system. The difference between l
 it’s fine to ignore the capacity.
 - When we assign s1 to s2, the String data is copied, meaning we copy the pointer, the length, and the capacity that are on the stack. 
 We do not copy the data on the heap that the pointer refers to.
-- Again, Rust does not copy the data heap when we do an assignment of type: s2 = s1;
+- Again, Rust does not copy the heap data when we do an assignment of type: s2 = s1;
 */
 
 

@@ -105,15 +105,35 @@ that the String has received from the operating system. The difference between l
 it’s fine to ignore the capacity.
 - When we assign s1 to s2, the String data is copied, meaning we copy the pointer, the length, and the capacity that are on the stack. 
 We do not copy the data on the heap that the pointer refers to.
-- Again, Rust does not copy the heap data when we do an assignment of type: s2 = s1;
+- Again, Rust does not copy the data heap when we do an assignment of type: s2 = s1;
+- Earlier, we said that when a variable goes out of scope, Rust automatically calls the drop function and cleans up the heap memory for that 
+variable. But Figure 4-2 shows both data pointers pointing to the same location. This is a problem: when s2 and s1 go out of scope, they will 
+both try to free the same memory. This is known as a double free error and is one of the memory safety bugs we mentioned previously. Freeing 
+memory twice can lead to memory corruption, which can potentially lead to security vulnerabilities.
+- To ensure memory safety, there’s one more detail to what happens in this situation in Rust. Instead of trying to copy the allocated memory, 
+Rust considers s1 to no longer be valid and, therefore, Rust doesn’t need to free anything when s1 goes out of scope.
+- Check out what happens when you try to use s1 after s2 is created; it won’t work.
+- If you’ve heard the terms shallow copy and deep copy while working with other languages, the concept of copying the pointer, length, and 
+capacity without copying the data probably sounds like making a shallow copy. But because Rust also invalidates the first variable, instead 
+of being called a shallow copy, it’s known as a move. In this example, we would say that s1 was moved into s2.
 */
 
 
+//Ways that Variables and Data interact: Clone
+/*
+- If we want to copy the heap data of the String (not only the data that is on the Stack(pointer,length,capacity)), we can use a method called "clone()".
+- When you see a call to "clone()", you know that some arbitrary code is being executed and that code may be expensive. It’s a visual indicator that something different is going on.
+- Take a look at the example below to see the "clone()" method in action:
 
+let s1 = String::from("Dale");
+let s2 = s1.clone(); //Now, the heap data does get copied.
+println!("The content of the String s2 is: {}", s2);
+*/
 
+//Stack-Only Data: Copy
+/*
 
-
-
+*/
 
 
 

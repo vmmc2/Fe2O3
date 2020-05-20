@@ -132,12 +132,13 @@ println!("The content of the String s2 is: {}", s2);
 
 //Stack-Only Data: Copy
 /*
-
+- So what types are Copy? You can check the documentation for the given type to be sure, but as a general rule, 
+any group of simple scalar values can be Copy, and nothing that requires allocation or is some form of resource is Copy.
 */
 
-
-
-
-
-
-
+//Ownership and Functions:
+/*
+- The semantics for passing a value to a function are similar to those for assigning a value to a variable.
+- Passing a variable to a function will move or copy, just as assignment does. Listing 4-3 has an example with some annotations showing 
+where variables go into and out of scope.
+*/

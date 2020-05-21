@@ -61,6 +61,11 @@ happens when these three behaviors occur:
 1) Two or more pointers access the same data at the same time.
 2) At least one of the pointers is being used to write to the data.
 3) There’s no mechanism being used to synchronize access to the data.
+
+- Data races cause undefined behavior and can be difficult to diagnose and fix when you’re trying to track them down at runtime; 
+Rust prevents this problem from happening because it won’t even compile code with data races!
+- As always, we can use curly brackets to create a new scope, allowing for multiple mutable references, just not simultaneous ones.
+- We also cannot have a mutable reference while we have an immutable one. However, multiple immutable references are okay .
 */
 
 

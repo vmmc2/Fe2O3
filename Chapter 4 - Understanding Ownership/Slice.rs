@@ -76,10 +76,27 @@ fn slices_examples(){
   let len = s.len();
   let slice = &s[0..len];
   let slice = &s[..];
-  
-  
-  
-  
 }
+
+
+fn first_word(s: &String) -> &str { //The &str type is the String Slice type.
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
+
+
+
+
+
+
+
+
 
 

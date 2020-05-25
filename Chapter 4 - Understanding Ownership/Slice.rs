@@ -33,3 +33,18 @@ fn first_word(s: &String) -> usize {
 
     s.len()
 }
+
+//String Slices
+/*
+- Fortunately, Rust offers to us a solution: The use of string slices. A string slice is no more than a reference to a part of a string.
+
+*/
+
+fn main(){
+  let mut s = String::from("hello world");
+  //Os String Slices funcionam exatamente como os ranges. A extremidade esquerda é inclusiva enquanto que a extremidade direita é exclusiva.
+  let hello = &s[0..5];
+  let world = &s[6..11];
+  
+}
+

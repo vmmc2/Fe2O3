@@ -41,7 +41,7 @@ fn main(){
     println!("Nome de usuario: {}", usuario.username);
     
     
-    //Creating an instance of a Processor Stuct
+    //Creating an instance of a Processor Struct
     let mut cpu = Processor{
         registers: [0; 32], //Seto para 0 todos os registradores
         pc: 0, //Set o pc para 0

@@ -51,7 +51,7 @@ fn main(){
 }
 
 //When we are working with Structs, note that the entire instance must be mutable; Rust doesn’t allow us to mark only certain fields as mutable.
-//In other words, we must decide whether our whole instance of the Struct will me mutable or not.
+//In other words, we must decide whether our whole instance of the Struct will be mutable or not.
 
 //Using the Field Init Shorthand when Variables and Fields Have the Same Name:
 /*

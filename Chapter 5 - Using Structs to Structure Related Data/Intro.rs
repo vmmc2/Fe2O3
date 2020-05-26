@@ -49,3 +49,25 @@ fn main(){
     };
     println!("O valor do primeiro slot de memoria eh: {}", cpu.memory[0]);
 }
+
+//When we are working with Structs, note that the entire instance must be mutable; Rust doesn’t allow us to mark only certain fields as mutable.
+//In other words, we must decide whether our whole instance of the Struct will me mutable or not.
+
+//Using the Field Init Shorthand when Variables and Fields Have the Same Name:
+/*
+- Because the parameter names and the struct field names are exactly the same in Listing 5-4, we can use the field init shorthand syntax to rewrite
+build_user so that it behaves exactly the same but doesn’t have the repetition of email and username.
+- To see how this function would be structured, take a look at the example below:
+*/
+
+fn build_user(email: String, username: String) -> User{
+    User{
+        username, //Now, since the name of the parameters and the name of the fields are the same, we don't need that boring stuff of username: username, email: email.
+        email,
+        sign_in_count: 1,
+        active: true,
+    }
+}
+
+
+

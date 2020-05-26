@@ -53,6 +53,8 @@ fn main(){
 //When we are working with Structs, note that the entire instance must be mutable; Rust doesn’t allow us to mark only certain fields as mutable.
 //In other words, we must decide whether our whole instance of the Struct will be mutable or not.
 
+
+
 //Using the Field Init Shorthand when Variables and Fields Have the Same Name:
 /*
 - Because the parameter names and the struct field names are exactly the same in Listing 5-4, we can use the field init shorthand syntax to rewrite
@@ -70,4 +72,19 @@ fn build_user(email: String, username: String) -> User{
 }
 
 
+
+//Creating Instances From Other Instances With Struct Update Syntax
+/*
+- It’s often useful to create a new instance of a struct that uses most of an old instance’s values but changes some. You’ll do this using 
+struct update syntax.
+- Using struct update syntax, we can achieve the same effect with less code, as shown in Listing 5-7. The syntax '..' specifies that the remaining 
+fields not explicitly set should have the same value as the fields in the given instance.
+- Take a look at the example below:
+*/
+
+let user2 = User {
+        email: String::from("another@example.com"),
+        username: String::from("anotherusername567"),
+        ..user1 //user1 has been already instanciated at another place in our code.
+};
 

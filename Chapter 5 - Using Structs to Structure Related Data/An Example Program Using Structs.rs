@@ -40,6 +40,10 @@ fn main(){
         ..rec1
     };
     println!("The height of rec2 is: {}.", rec2.height);
+    /*
+    - As mentioned in Chapter 4, we want to borrow the struct rather than take ownership of it. This way, main retains its ownership and
+    can continue using rect1, which is the reason we use the & in the function signature and where we call the function.
+    */
     println!("The area of this rectangle is: {}", area(&rec1));
     
     

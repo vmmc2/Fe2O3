@@ -21,6 +21,11 @@ fn main(){
 
 //Approach 2: Using Structs
 
+/*
+- Rust does include functionality to print out debugging information, but we have to explicitly opt in to make that functionality available for
+our struct. To do that, we add the annotation #[derive(Debug)] just before the struct definition.
+*/
+#[derive(Debug)] //Annotation que possibilita que a gente possa printar informacoes sobre essa Struct seguindo um formato de Debug.
 struct Rectangle{
     width: u32,
     height: u32,
@@ -40,11 +45,11 @@ fn main(){
         ..rec1
     };
     println!("The height of rec2 is: {}.", rec2.height);
-    /*
-    - As mentioned in Chapter 4, we want to borrow the struct rather than take ownership of it. This way, main retains its ownership and
-    can continue using rect1, which is the reason we use the & in the function signature and where we call the function.
-    */
     println!("The area of this rectangle is: {}", area(&rec1));
-    
+    println!(" ");
+    println!("Information about rec2: {:?}", rec2); //Oq ta dentro do curly braces eh um tipo de formatacao especifica para Debbuging.
+    //Uma outra opcao mais agradavel visualmente (principalmente quando estamos trabalhando com Structs que possuem muitos campos se 
+    //encontra abaixo: {:#?}
+    println!("Information about rec1: {:#?}", rec1);
     
 }
